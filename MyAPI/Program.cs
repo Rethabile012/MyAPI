@@ -10,12 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 // Add DbContext (replace 'YourDbContext' and 'YourConnectionString' accordingly)
-builder.Services.AddDbContext<YourDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
 // Add Identity services
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<YourDbContext>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
 // Configure JWT authentication
